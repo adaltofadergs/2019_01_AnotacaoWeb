@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "161165496374",
+    "firebase_url": "https://appanotacaofadergs.firebaseio.com",
+    "project_id": "appanotacaofadergs",
+    "storage_bucket": "appanotacaofadergs.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:161165496374:android:9296067fd8980a71",
+        "android_client_info": {
+          "package_name": "com.adalto.anotao"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1gvEoSt25pePT7tltiS8bmMlENPdxKAU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "161165496374-9uikon0qttof9dbmc71kukjjtlfudn1v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
