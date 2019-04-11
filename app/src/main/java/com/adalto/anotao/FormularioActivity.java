@@ -6,10 +6,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class FormularioActivity extends AppCompatActivity {
 
     private EditText etTitulo, etTexto;
     private Button btnSalvar;
+
+    private FirebaseDatabase database;
+    private DatabaseReference reference;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +39,14 @@ public class FormularioActivity extends AppCompatActivity {
         Anotacao nota = new Anotacao();
         nota.setTexto( etTexto.getText().toString() );
         nota.setTitulo( etTitulo.getText().toString() );
+
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference();
+
+        reference.child("notas").push().setValue( nota );
+
+
+
 
         this.finish();
     }
