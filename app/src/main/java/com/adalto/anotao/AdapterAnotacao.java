@@ -33,7 +33,7 @@ public class AdapterAnotacao extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return lista.get(position).getId();
+        return position;
     }
 
     @Override
@@ -57,7 +57,7 @@ public class AdapterAnotacao extends BaseAdapter {
         }
 
         Anotacao nota = lista.get( position );
-        item.tvCodigo.setText( String.valueOf( nota.getId() ) );
+        item.tvCodigo.setText(  nota.getId()  );
         item.tvTitulo.setText(  nota.getTitulo()  );
         item.tvTexto.setText(  nota.getTexto()  );
 
