@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -56,12 +57,18 @@ public class CadastroActivity extends AppCompatActivity {
                     addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            String idUsuario = auth.getCurrentUser().getUid();
-                            database = FirebaseDatabase.getInstance();
-                            reference = database.getReference("usuarios").child(idUsuario);
-                            reference.child("nome").setValue( nome );
-                            reference.child("email").setValue( email );
-                            finish();
+                            if( task.isSuccessful() ) {
+                                String idUsuario = auth.getCurrentUser().getUid();
+                                database = FirebaseDatabase.getInstance();
+                                reference = database.getReference("usuarios").child(idUsuario);
+                                reference.child("nome").setValue(nome);
+                                reference.child("email").setValue(email);
+                                finish();
+                            }else {
+                                Toast.makeText(CadastroActivity.this,
+                                        "Erro ao criar o usuário",
+                                        Toast.LENGTH_SHORT).show();
+                            }
                         }
                     });
 
